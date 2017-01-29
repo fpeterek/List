@@ -57,4 +57,13 @@ int main(int argc, const char * argv[]) {
         std::cout << test[i] << std::endl;
     }
     
+    list<int> copy(test);
+    copy[3] = 69;
+    for (int i = 0; i < copy.length(); ++i) {
+        std::cout << copy[i] << std::endl;
+    }
+    for (int i = 0; i < test.length(); ++i) {
+        std::cout << test[i] << std::endl;
+    }
+    
 }

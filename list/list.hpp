@@ -29,7 +29,7 @@ struct list_node {
         
     }
     
-    list_node(T & newValue, list_node * next = nullptr, list_node * previous = nullptr) {
+    list_node(const T & newValue, list_node * next = nullptr, list_node * previous = nullptr) {
         
         value         = newValue;
         next_node     = next;
@@ -103,6 +103,16 @@ public:
         }
         
         va_end(args);
+        
+    }
+    
+    list(const list<T> & orig) {
+        
+        for (size_t i = 0; i < orig.length(); ++i) {
+            
+            push_back(orig[i]);
+            
+        }
         
     }
     
@@ -226,7 +236,7 @@ public:
         return at(index);
     }
     
-    void insert(T & value, size_t index) {
+    void insert(const T & value, size_t index) {
         
         if (index == list_size) {
             push_back(value);
@@ -257,7 +267,7 @@ public:
         
     }
     
-    void insert(T && value, size_t index) {
+    void insert(const T && value, size_t index) {
         
         insert(value, index);
         
@@ -313,7 +323,7 @@ public:
         
     }
     
-    void push(T & value) {
+    void push(const T & value) {
         
         list_node<T> * node = new list_node<T>(value);
         
@@ -334,13 +344,13 @@ public:
         
     }
     
-    void push(T && value) {
+    void push(const T && value) {
         
         push(value);
         
     }
     
-    void push_back(T & value) {
+    void push_back(const T & value) {
         
         list_node<T> * node = new list_node<T>(value);
         
@@ -361,7 +371,7 @@ public:
         
     }
     
-    void push_back(T && value) {
+    void push_back(const T && value) {
         push_back(value);
     }
     
